@@ -8,10 +8,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
-/**
- *
- * @author Santiago
- */
 public class CapturaRecursosWeb {
   private ArrayList<String> listaRecursos = new ArrayList<String>();
 
@@ -44,9 +40,6 @@ public class CapturaRecursosWeb {
     return resultado;
   }
 
-  /**
-   * @return the listaRecursos
-   */
   public ArrayList<String> getListaRecursos() {
     return listaRecursos;
   }
