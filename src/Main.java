@@ -4,10 +4,20 @@ import java.util.ArrayList;
 
 public class Main {
     private static char[] generate_alphabet() {
-        char[] alphabet = new char[10];
-        for (int i = 0; i < 10; i++) {
-            String index = Integer.toString(i);
-            alphabet[i] = index.charAt(0);
+        char[] alphabet = new char[14];
+        for (int i = 0; i < 14; i++) {
+            if (i == 10) {
+                alphabet[i] = ' ';
+            } else if (i == 11) {
+                alphabet[i] = '(';
+            } else if (i == 12) {
+                alphabet[i] = ')';
+            } else if (i == 13) {
+                alphabet[i] = '-';
+            } else {
+                String index = Integer.toString(i);
+                alphabet[i] = index.charAt(0);
+            }
         }
         return alphabet;
     }
@@ -53,13 +63,9 @@ public class Main {
         ArrayList<String> listaCodigos = crw.carregarRecursos();
 
         String codigoHTML = listaCodigos.get(0);
-
         char[] alphabet = generate_alphabet();
-
         String[] states = generate_states();
-
         String estado_inicial = "q0";
-
         String[] estados_finais = new String[1];
         estados_finais[0] = "q2";
 
