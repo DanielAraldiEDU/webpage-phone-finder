@@ -32,22 +32,24 @@ public class Main {
 
 	public static void main(String[] args) {
 		CapturaRecursosWeb crw = new CapturaRecursosWeb();
-		crw.getListaRecursos().add("https://www.univali.br/");
-		crw.getListaRecursos().add("https://omunicipio.com.br/");
-		crw.getListaRecursos().add("https://geradornv.com.br/gerador-telefone/");
+		crw.getListaRecursos().add("https://selbetti.com.br/contato/");
+		crw.getListaRecursos().add("https://www.escalize.com.br/");
+		crw.getListaRecursos().add("https://www.bc.sc.gov.br/contato.cfm");
+		crw.getListaRecursos().add("https://a4print.com.br/lfa.html");
 		ArrayList<String> listaCodigos = crw.carregarRecursos();
 
-		String[] codigosHTML = {
-				listaCodigos.get(0),
-				listaCodigos.get(1),
-				listaCodigos.get(2),
-		};
 		char[] alphabet = {
 				'0', '1', '2', '3',
 				'4', '5', '6', '7',
 				'8', '9', ' ', '-',
-				'(', ')', 'e', 'f',
-				'-'
+				'(', ')',
+		};
+		String estado_inicial = "q0";
+		String[] codigosHTML = {
+				listaCodigos.get(0),
+				listaCodigos.get(1),
+				listaCodigos.get(2),
+				listaCodigos.get(3),
 		};
 		String[] states = {
 				"q0", "q1", "q2", "q3", "q4",
@@ -59,11 +61,11 @@ public class Main {
 				"q30", "q31", "q32", "q33", "q34",
 				"q35"
 		};
-		String estado_inicial = "q0";
-		String[] estados_finais = new String[1];
-		estados_finais[0] = "q35";
+		String[] estados_finais = {
+				"q35"
+		};
 
-		int[][] matriz = new int[36][17];
+		int[][] matriz = new int[36][14];
 
 		// q0
 		matriz[get_string_ref(states, "q0")][get_char_ref(alphabet, '(')] = get_string_ref(states, "q6");
@@ -401,7 +403,6 @@ public class Main {
 			for (String p : palavras_reconhecidas) {
 				System.out.println(p);
 			}
-			System.out.println("\n\n");
 		}
 	}
 }
