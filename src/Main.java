@@ -35,7 +35,6 @@ public class Main {
 		crw.getListaRecursos().add("https://selbetti.com.br/contato/");
 		crw.getListaRecursos().add("https://www.escalize.com.br/");
 		crw.getListaRecursos().add("https://www.bc.sc.gov.br/contato.cfm");
-		crw.getListaRecursos().add("https://a4print.com.br/lfa.html");
 		ArrayList<String> listaCodigos = crw.carregarRecursos();
 
 		char[] alphabet = {
@@ -49,7 +48,6 @@ public class Main {
 				listaCodigos.get(0),
 				listaCodigos.get(1),
 				listaCodigos.get(2),
-				listaCodigos.get(3),
 		};
 		String[] states = {
 				"q0", "q1", "q2", "q3", "q4",
@@ -385,7 +383,7 @@ public class Main {
 					if (get_string_ref(estados_finais, states[estado_anterior]) != -1) {
 						// se a palavra não é vazia adiciona palavra reconhecida
 						if (!palavra.equals("")) {
-							palavras_reconhecidas.add(palavra);
+							palavras_reconhecidas.add(palavra.trim());
 						}
 						// se ao analisar este caracter não houve transição
 						// teste-o novamente, considerando que o estado seja inicial
